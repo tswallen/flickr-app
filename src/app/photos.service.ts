@@ -13,13 +13,14 @@ export class PhotosService {
 
   constructor(private http: HttpClient) { }
 
-  getPhotos(): Observable<Photo[]> {
+  getPhotos(query: string): Observable<Photo[]> {
     const params = new HttpParams()
       .set('api_key', '24422162e2db1595139ac392f3d8073c')
       .append('method', 'flickr.photos.search')
-      .append('text', 'plane')
+      .append('text', query)
       .append('format', 'json')
-      .append('nojsoncallback', '1');
+      .append('nojsoncallback', '1')
+      .append('safe_search', '3');
 
     return this.http.get<Photo[]>(this.photosUrl, { params })
       .pipe(

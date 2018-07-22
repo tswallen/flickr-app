@@ -16,11 +16,10 @@ export class AppComponent implements OnInit{
   constructor(private photosService: PhotosService) { }
 
   ngOnInit() {
-    this.getPhotos();
   }
 
   getPhotos(): void {
-    this.photosService.getPhotos()
+    this.photosService.getPhotos(this.search.value)
     .subscribe(photos => this.photos = photos);
   }
 }

@@ -7,8 +7,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatProgressBarModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { PhotosService } from './photos.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,10 @@ import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule, MatProgressBarModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule,
+    MatToolbarModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PhotosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

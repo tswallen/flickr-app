@@ -1,20 +1,20 @@
 <mat-toolbar color="primary">
   <span>Flickr Search</span>
-  <span class="example-spacer"></span>
-  <mat-icon class="example-icon">list</mat-icon>
+  <span class="spacer"></span>
+  <mat-icon class="icon">list</mat-icon>
 </mat-toolbar>
 
 <div id="search">
   <mat-form-field>
     <mat-label>Search</mat-label>
-    <input matInput placeholder="Type your search here" [formControl]="search">
+    <input matInput placeholder="Type your search here" [formControl]="search" (keyup.enter)="getPhotos()">
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-  <button mat-raised-button color="accent">Run Search</button>
+  <button mat-raised-button color="accent" (click)="getPhotos()">Run Search</button>
 </div>
 
-<mat-progress-bar *ngIf="!photos" mode="indeterminate"></mat-progress-bar>
+<!-- <mat-progress-bar *ngIf="!photos" mode="indeterminate"></mat-progress-bar> -->
 
-<div id="photos">
+<div id="photoList">
   <img *ngFor="let photo of photos" src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}.jpg">
 </div>

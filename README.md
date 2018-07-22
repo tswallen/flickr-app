@@ -1,27 +1,21 @@
 # FlickrApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+## Install
 
-## Development server
+1. Run `npm install`
+2. Run `npm start`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
 
-## Code scaffolding
+Simply enter your query in the search bar and **press run search** or **hit enter**. Your query will hit the Flickr API with a preset key and the results will be interpolated into your display.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How it works
 
-## Build
+1. The *input* object is bound to a *FormControl* that holds our search parameters
+2. On search, this *FormControl* value is sent to a service
+3. This service then queries the Flickr Api and writes the incoming json into a local array
+4. Angular then loops though this array, interpolating its objects into the template
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Bonus: AWS EC2 with Node.js
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For EC2 deployment, a simple *build.yml* file is required. I can provide this upon request, the repo is private.

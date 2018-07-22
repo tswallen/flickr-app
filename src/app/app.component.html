@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
   <span>Flickr Search</span>
+  <span class="example-spacer"></span>
+  <mat-icon class="example-icon">list</mat-icon>
 </mat-toolbar>
 
 <div id="search">
@@ -10,11 +12,6 @@
   </mat-form-field>
   <button mat-raised-button color="accent">Run Search</button>
 </div>
-
-<mat-toolbar-row>
-  <span class="example-spacer"></span>
-  <mat-icon class="example-icon">list</mat-icon>
-</mat-toolbar-row>
 
 <mat-progress-bar *ngIf="!photos" mode="indeterminate"></mat-progress-bar>
 
